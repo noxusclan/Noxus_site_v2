@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NOXUS CLAN</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="/Loghi Main/LOGO_NOXUS_2.png" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <header>
+      <div class="header-container">
+        <!-- LOGO + TOGGLE DESKTOP -->
+        <div class="left-group">
+          <div class="logo-container">
+            <a href="#top">
+              <img
+                src="/Loghi Main/LOGO_NOXUS_2.png"
+                alt="NOXUS Logo"
+                class="logo smoke-logo"
+              />
+            </a>
+            <a href="#top"><h2>NOXUS CLAN</h2></a>
+
+            <!-- 🔆 TOGGLE UIVERSE (DESKTOP) -->
+            <label class="switch">
+              <input type="checkbox" id="themeSwitchDesktop" />
+              <span class="slider">
+                <span class="circle">
+                  <span class="shine shine-1"></span>
+                  <span class="shine shine-2"></span>
+                  <span class="shine shine-3"></span>
+                  <span class="shine shine-4"></span>
+                  <span class="shine shine-5"></span>
+                  <span class="shine shine-6"></span>
+                  <span class="shine shine-7"></span>
+                  <span class="shine shine-8"></span>
+                  <span class="moon"></span>
+                </span>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <!-- HAMBURGER + TOGGLE MOBILE -->
+        <div
+          class="hamburger"
+          id="hamburger"
+          aria-label="Apri menu"
+          role="button"
+          tabindex="0"
+        >
+          <!-- 🔆 TOGGLE UIVERSE (MOBILE) -->
+          <label class="switch mobile-toggle">
+            <input type="checkbox" id="themeSwitchMobile" />
+            <span class="slider">
+              <span class="circle">
+                <span class="shine shine-1"></span>
+                <span class="shine shine-2"></span>
+                <span class="shine shine-3"></span>
+                <span class="shine shine-4"></span>
+                <span class="shine shine-5"></span>
+                <span class="shine shine-6"></span>
+                <span class="shine shine-7"></span>
+                <span class="shine shine-8"></span>
+                <span class="moon"></span>
+              </span>
+            </span>
+          </label>
+
+          <i class="fas fa-bars" aria-hidden="true"></i>
+        </div>
+
+        <!-- MENU -->
+        <nav id="nav-menu" aria-label="Navigazione principale">
+          <ul>
+            <li><a href="#about">Chi siamo</a></li>
+            <li><a href="#staff">Staff</a></li>
+            <li><a href="#player">Players</a></li>
+            <li><a href="#mainteam">Main Team</a></li>
+            <li><a href="#streamer">Streamers</a></li>
+            <li><a href="#sponsor">Partner</a></li>
+            <li><a href="#elite">Élite</a></li>
+            <li><a href="#rules">Regole</a></li>
+            <li><a href="#join">Unisciti</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <video autoplay muted loop playsinline>
+        <source src="/Loghi Main/Noxus1.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-content">
+        <h1>Benvenuto su <span>NOXUS</span></h1>
+        <p>Nessuna pietà, solo vittorie</p>
+      </div>
+    </section>
+    <main>
+      <!-- CHI SIAMO -->
+      <section id="about" class="content">
+        <h2>Chi Siamo?</h2>
+        <p>
+          NOXUS è più di un clan: è una famiglia competitiva, unita dalla
+          passione per il gaming e dalla voglia di crescere insieme.
+          <br />Fondato con l’obiettivo di creare un ambiente ordinato,
+          stimolante e senza tossicità, NOXUS è suddiviso in due categorie
+          principali: Academy e Élite. <br />Offriamo supporto completo ai
+          membri, squad attive ogni giorno, tornei, scrim e supporto grafico per
+          streamer e creator. <br />La nostra filosofia: nessuna pietà, solo
+          vittorie.
+        </p>
+      </section>
+      <!-- STAFF -->
+      <section id="staff" class="content">
+        <h2>Staff</h2>
+        <p>Team che gestisce il clan e supporta i membri</p>
+
+        <div class="staff-cards" role="list">
+          <!-- CARD 1 -->
+          <div
+            class="staff-card"
+            role="listitem"
+            data-bio="Founder del Clan NOXUS 🎮 | Visionario del gaming competitivo | Guida la community con passione, strategia e spirito di squadra. Sempre alla ricerca di nuovi talenti."
+            data-twitch="https://twitch.tv/noxus_clan"
+            data-tiktok="https://tiktok.com/@clan_noxus"
+            data-instagram="https://instagram.com/_noxus_clan_"
+          >
+            <div class="staff-card-inner">
+              <div class="staff-card-front">
+                <img src="Staff/zzlade.jpeg" alt="Zzlade" />
+                <h3>Zzlade</h3>
+                <p>Founder</p>
+              </div>
+              <div class="staff-card-back">
+                <h4>Zzlade</h4>
+                <p>
+                  Founder e leader del Clan NOXUS. Stratega, competitivo e
+                  visionario.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD 2 -->
+          <div
+            class="staff-card"
+            role="listitem"
+            data-bio="Co-leader e supporto tecnico per eventi e tornei."
+            data-twitch="https://twitch.tv/realmarcio__"
+            data-tiktok="https://tiktok.com/@realmarcio__"
+            data-instagram="https://instagram.com/realmarcio__"
+          >
+            <div class="staff-card-inner">
+              <div class="staff-card-front">
+                <img src="img/staff2.png" alt="Realmarcio__" />
+                <h3>Realmarcio__</h3>
+                <p>Admin</p>
+              </div>
+              <div class="staff-card-back">
+                <h4>Realmarcio__</h4>
+                <p>Admin e responsabile eventi e comunicazione NOXUS.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD 3 -->
+          <div
+            class="staff-card"
+            role="listitem"
+            data-bio="Tattico e organizzatore del Main Team NOXUS."
+            data-twitch="https://twitch.tv/elprofesor_ct"
+            data-tiktok="https://tiktok.com/@elprofesor_ct"
+            data-instagram="https://instagram.com/elprofesor_ct"
+          >
+            <div class="staff-card-inner">
+              <div class="staff-card-front">
+                <img src="img/staff2.png" alt="El Profesor" />
+                <h3>El Profesor</h3>
+                <p>Admin</p>
+              </div>
+              <div class="staff-card-back">
+                <h4>El Profesor</h4>
+                <p>
+                  Admin strategico del Main Team, coordinatore e analista dei
+                  match.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD 4 -->
+          <div
+            class="staff-card"
+            role="listitem"
+            data-bio="Supporto tecnico e organizzativo per i tornei."
+            data-twitch="#"
+            data-tiktok="#"
+            data-instagram="#"
+          >
+            <div class="staff-card-inner">
+              <div class="staff-card-front">
+                <img src="img/staff_new.png" alt="Nome Admin" />
+                <h3>Nome Admin</h3>
+                <p>Admin</p>
+              </div>
+              <div class="staff-card-back">
+                <h4>Nome Admin</h4>
+                <p>Gestione clan e supporto community NOXUS.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PLAYER CAROUSEL -->
+
+      <section id="player" class="content">
+        <h2>Players</h2>
+        <p>Player Competitive NOXUS ÉLITE</p>
+        <div
+          class="nxs-carousel player-carousel"
+          data-autoplay="5000"
+          aria-roledescription="carousel"
+        >
+          <button class="nxs-btn nxs-prev" aria-label="Slide precedente">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <div class="nxs-window">
+            <div class="nxs-track">
+              <figure
+                class="nxs-slide player-card"
+                data-name="SimoBlue99"
+                data-bio="Entry Fragger del team Élite..."
+                data-link="https://www.twitch.tv/simoblue99"
+                data-img="/Player/SimoElite.png"
+                role="group"
+                tabindex="0"
+              >
+                <img src="Player/SimoElite.png" alt="SimoBlue99" />
+                <div class="overlay">SimoBlue99</div>
+              </figure>
+
+              <figure
+                class="nxs-slide player-card"
+                data-name="ElProfesor"
+                data-bio="Capitano della squadra competitiva NOXUS..."
+                data-link="https://www.twitch.tv/elprofesor_ct"
+                data-img="/Player/ProfElite.png"
+                role="group"
+                tabindex="0"
+              >
+                <img src="Player/ProfElite.png" alt="ElProfesor" />
+                <div class="overlay">ElProfesor</div>
+              </figure>
+
+              <figure
+                class="nxs-slide player-card"
+                data-name="Coming Soon"
+                data-bio="Nuovo membro competitivo in arrivo nella squadra Élite di NOXUS."
+                data-link="#"
+                data-img="/Loghi Main/LOGO_NOXUS_2.png"
+                role="group"
+                tabindex="0"
+              >
+                <img src="/Loghi Main/LOGO_NOXUS_2.png" alt="Coming Soon" />
+                <div class="overlay">Coming Soon</div>
+              </figure>
+
+              <figure
+                class="nxs-slide player-card"
+                data-name="Coming Soon"
+                data-bio="Nuovo membro competitivo in arrivo nella squadra Élite di NOXUS."
+                data-link="#"
+                data-img="/Loghi Main/LOGO_NOXUS_2.png"
+                role="group"
+                tabindex="0"
+              >
+                <img src="/Loghi Main/LOGO_NOXUS_2.png" alt="Coming Soon" />
+                <div class="overlay">Coming Soon</div>
+              </figure>
+            </div>
+          </div>
+          <button class="nxs-btn nxs-next" aria-label="Slide successivo">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+          <div class="nxs-dots" role="tablist"></div>
+        </div>
+      </section>
+      <!-- MAIN TEAM -->
+      <section id="mainteam" class="content">
+        <h2>Main Team</h2>
+        <p>Squadra ufficiale NOXUS MAIN</p>
+
+        <div
+          class="nxs-carousel mainteam-carousel"
+          data-autoplay="5000"
+          aria-roledescription="carousel"
+        >
+          <button class="nxs-btn nxs-prev" aria-label="Slide precedente">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+
+          <div class="nxs-window">
+            <div class="nxs-track">
+              <!-- Membri Main Team -->
+              <figure
+                class="nxs-slide player-card"
+                data-name="SimoBlue99"
+                data-bio="Leader del Main Team NOXUS, stratega e fondatore."
+                data-link="https://www.twitch.tv/simoblue99"
+                data-img="/Main Team/MainSimoblue99.png"
+                role="group"
+                tabindex="0"
+              >
+                <img src="/Main Team/MainSimoblue99.png" alt="SimoBlue99" />
+                <div class="overlay">SimoBlue99</div>
+              </figure>
+
+              <figure
+                class="nxs-slide player-card"
+                data-name="ElProfesor"
+                data-bio="Admin e player competitivo del Main Team NOXUS."
+                data-link="https://www.twitch.tv/elprofesor_ct"
+                data-img="/Main Team/ProfMain.png"
+                role="group"
+                tabindex="0"
+              >
+                <img src="/Main Team/ProfMain.png" alt="ElProfesor" />
+                <div class="overlay">ElProfesor</div>
+              </figure>
+
+              <figure
+                class="nxs-slide player-card"
+                data-name="Elozxt"
+                data-bio="Tattico e membro ufficiale del Main Team NOXUS."
+                data-link="https://www.twitch.tv/elprofesor_ct"
+                data-img="/Main Team/Elozxt.png"
+                role="group"
+                tabindex="0"
+              >
+                <img src="/Main Team/Elozxt.png" alt="Elozxt" />
+                <div class="overlay">Elozxt</div>
+              </figure>
+
+              <figure
+                class="nxs-slide player-card"
+                data-name="VFey"
+                data-bio="Nuovo membro del Main Team in arrivo."
+                data-link="#"
+                data-img="/Main Team/VFey.png"
+                role="group"
+                tabindex="0"
+              >
+                <img src="/Main Team/VFey.png" alt="VFey" />
+                <div class="overlay">VFey</div>
+              </figure>
+
+              <figure
+                class="nxs-slide player-card"
+                data-name="RickyBorn"
+                data-bio="Nuovo membro del Main Team in arrivo."
+                data-link="#"
+                data-img="/Main Team/RickyBorn.png"
+                role="group"
+                tabindex="0"
+              >
+                <img src="/Main Team/RickyBorn.png" alt="RickyBorn" />
+                <div class="overlay">RickyBorn</div>
+              </figure>
+
+              <figure
+                class="nxs-slide player-card"
+                data-name="Kiwi"
+                data-bio="Nuovo membro del Main Team in arrivo."
+                data-link="#"
+                data-img="/Main Team/Kiwi.png"
+                role="group"
+                tabindex="0"
+              >
+                <img src="/Main Team/Kiwi.png" alt="Kiwi" />
+                <div class="overlay">Kiwi</div>
+              </figure>
+
+              <figure
+                class="nxs-slide player-card"
+                data-name="Gemex"
+                data-bio="Nuovo membro del Main Team in arrivo."
+                data-twitch="https://www.twitch.tv/iItzGemeX_"
+                data-img="/Main Team/Gemex.png"
+                role="group"
+                tabindex="0"
+              >
+                <img src="Main Team/Gemex.png" alt="Gemex" />
+                <div class="overlay">Gemex</div>
+              </figure>
+
+              <figure
+                class="nxs-slide player-card"
+                data-name="Ricc"
+                data-bio="Nuovo membro del Main Team in arrivo."
+                data-twitch="https://www.twitch.tv/ricctv"
+                data-tiktok="https://www.tiktok.com/@ricctv"
+                data-img="/Main Team/Ricc.png"
+                role="group"
+                tabindex="0"
+              >
+                <img src="/Main Team/Ricc.png" alt="Ricc" />
+                <div class="overlay">Ricc</div>
+              </figure>
+            </div>
+          </div>
+
+          <button class="nxs-btn nxs-next" aria-label="Slide successivo">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+
+          <div class="nxs-dots" role="tablist"></div>
+        </div>
+      </section>
+      <!-- MODAL PLAYER (con icone social integrate) -->
+      <div
+        id="playerModal"
+        class="modal"
+        aria-hidden="true"
+        role="dialog"
+        aria-modal="true"
+      >
+        <div class="modal-content">
+          <span class="close" id="playerClose" aria-label="Chiudi modale player"
+            >&times;</span
+          >
+          <img id="modalImg" src="" alt="Player Image" />
+          <h3 id="modalName"></h3>
+          <p id="modalBio"></p>
+
+          <!-- 🔗 Nuova sezione social -->
+          <div id="modalSocials" class="player-social-modal">
+            <a
+              href="#"
+              id="twitchLink"
+              target="_blank"
+              rel="noopener"
+              aria-label="Twitch"
+            >
+              <i class="fab fa-twitch"></i>
+            </a>
+            <a
+              href="#"
+              id="tiktokLink"
+              target="_blank"
+              rel="noopener"
+              aria-label="TikTok"
+            >
+              <i class="fab fa-tiktok"></i>
+            </a>
+            <a
+              href="#"
+              id="instagramLink"
+              target="_blank"
+              rel="noopener"
+              aria-label="Instagram"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- MODAL STAFF -->
+      <div
+        id="staffModal"
+        class="modal"
+        aria-hidden="true"
+        role="dialog"
+        aria-modal="true"
+      >
+        <div class="modal-content">
+          <span class="close" id="staffClose" aria-label="Chiudi modale staff"
+            >&times;</span
+          >
+          <img id="staffImg" src="" alt="Staff Image" />
+          <h3 id="staffName"></h3>
+          <p id="staffRole"></p>
+          <p id="staffBio"></p>
+          <div id="staffLinks" class="staff-social-modal"></div>
+        </div>
+      </div>
+
+      <!-- STREAMER -->
+      <section id="streamer" class="content">
+        <h2>Streamers</h2>
+        <p>Streamer NOXUS</p>
+        <div
+          class="nxs-carousel"
+          data-autoplay="5000"
+          aria-roledescription="carousel"
+        >
+          <button class="nxs-btn nxs-prev" aria-label="Slide precedente">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <div class="nxs-window">
+            <div class="nxs-track">
+              <figure class="nxs-slide">
+                <a
+                  href="https://www.twitch.tv/simoblue99"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <img src="Streamer/Simoblue99.jpeg" alt="Streamer 1" />
+                  <div class="overlay">@SimoBlue99</div>
+                </a>
+              </figure>
+              <figure class="nxs-slide">
+                <a href="https://twitch.tv/" target="_blank" rel="noopener">
+                  <img src="Streamer/Branca.jpeg" alt="Streamer 2" />
+                  <div class="overlay">@Br4nc4</div>
+                </a>
+              </figure>
+              <figure class="nxs-slide">
+                <a
+                  href="https://www.twitch.tv/realmarcio__"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <img src="Streamer/RealMar.jpeg" alt="Streamer 3" />
+                  <div class="overlay">@realmarcio__</div>
+                </a>
+              </figure>
+              <figure class="nxs-slide">
+                <a
+                  href="https://www.tiktok.com/@baaiigg?_t=ZN-90hj5f9H55a&_r=1"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <img src="Streamer/Bai.jpeg" alt="Streamer 4" />
+                  <div class="overlay">@Xx_BAII.GG</div>
+                </a>
+              </figure>
+              <figure class="nxs-slide">
+                <a
+                  href="https://www.tiktok.com/@bloodlust_tv"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <img src="Streamer/BloodLust.jpeg" alt="Streamer 5" />
+                  <div class="overlay">@Bloodlust_tv</div>
+                </a>
+              </figure>
+              <figure class="nxs-slide">
+                <a
+                  href="https://www.twitch.tv/steaker91"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <img src="Streamer/Escobar.jpeg" alt="Streamer 6" />
+                  <div class="overlay">@RS Escobar</div>
+                </a>
+              </figure>
+              <figure class="nxs-slide">
+                <a href="https://www.twitch.tv" target="_blank" rel="noopener">
+                  <img src="Streamer/Kiwi.jpeg" alt="Streamer 7" />
+                  <div class="overlay">@Kiwi</div>
+                </a>
+              </figure>
+              <figure class="nxs-slide">
+                <a href="https://www.twitch.tv/" target="_blank" rel="noopener">
+                  <img src="Streamer/Prof.jpeg" alt="Streamer 8" />
+                  <div class="overlay">@ElProfesor</div>
+                </a>
+              </figure>
+              <figure class="nxs-slide">
+                <a href="https://www.twitch.tv/" target="_blank" rel="noopener">
+                  <img src="Streamer/Gabbo.jpeg" alt="Streamer 9" />
+                  <div class="overlay">@G4bbo</div>
+                </a>
+              </figure>
+              <figure class="nxs-slide">
+                <a href="https://www.twitch.tv/" target="_blank" rel="noopener">
+                  <img src="Streamer/RenGoku.jpeg" alt="Streamer 10" />
+                  <div class="overlay">@RenGoku</div>
+                </a>
+              </figure>
+              <figure class="nxs-slide">
+                <a href="https://www.twitch.tv/" target="_blank" rel="noopener">
+                  <img src="Streamer/SalvoFlex.jpeg" alt="Streamer 11" />
+                  <div class="overlay">@SalvoFlexBoy</div>
+                </a>
+              </figure>
+              <figure class="nxs-slide">
+                <a href="https://www.twitch.tv/" target="_blank" rel="noopener">
+                  <img src="Streamer/Noyz.jpeg" alt="Streamer 12" />
+                  <div class="overlay">@NoyzTTV</div>
+                </a>
+              </figure>
+              <figure class="nxs-slide">
+                <a href="https://www.twitch.tv/" target="_blank" rel="noopener">
+                  <img src="Streamer/Nikxos.jpeg" alt="Streamer 13" />
+                  <div class="overlay">@Nikx0s89</div>
+                </a>
+              </figure>
+              <figure class="nxs-slide">
+                <a href="https://www.twitch.tv/" target="_blank" rel="noopener">
+                  <img src="Streamer/CristianoDa9.jpeg" alt="Streamer 14" />
+                  <div class="overlay">@CristianoDa9</div>
+                </a>
+              </figure>
+              <figure class="nxs-slide">
+                <a href="https://www.twitch.tv/" target="_blank" rel="noopener">
+                  <img src="Streamer/" alt="Streamer 15" />
+                  <div class="overlay">@TotiiSklero92</div>
+                </a>
+              </figure>
+            </div>
+          </div>
+          <button class="nxs-btn nxs-next" aria-label="Slide successivo">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+          <div class="nxs-dots"></div>
+        </div>
+      </section>
+
+      <!-- SPONSOR -->
+      <section id="sponsor" class="content">
+        <h2>Partner & Sponsor</h2>
+        <p>Servizi e Affiliazioni</p>
+        <div
+          class="nxs-carousel other-carousel"
+          data-autoplay="5700"
+          aria-roledescription="carousel"
+        >
+          <button class="nxs-btn nxs-prev" aria-label="Slide precedente">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <div class="nxs-window">
+            <div class="nxs-track">
+              <figure class="nxs-slide">
+                <a
+                  href="https://linktr.ee/Medical_pad"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <video autoplay muted loop playsinline>
+                    <source src="Sponsor/Dual Sense.mp4" type="video/mp4" />
+                  </video>
+                  <div class="overlay">MedicalPad</div>
+                </a>
+              </figure>
+              <figure class="nxs-slide">
+                <a
+                  href="https://nolagvpn.com/join/ZZLADE"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <img src="Sponsor/nolag.png" alt="Sponsor nolagvpn" />
+                  <div class="overlay">NoLagVPN</div>
+                </a>
+              </figure>
+              <figure class="nxs-slide">
+                <a
+                  href="https://www.instant-gaming.com/?igr=gamer-f8f88e5"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <img
+                    src="Sponsor/instantgaming.png"
+                    alt="Sponsor instant gaming"
+                  />
+                  <div class="overlay">Instant Gaming</div>
+                </a>
+              </figure>
+            </div>
+          </div>
+          <button class="nxs-btn nxs-next" aria-label="Slide successivo">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+          <div class="nxs-dots"></div>
+        </div>
+      </section>
+
+      <!-- ELITE -->
+      <section id="elite" class="content elite">
+        <div class="elite-container">
+          <div class="elite-text">
+            <h2>NOXUS ELITE – LA VETTA DEL POTERE</h2>
+            <p>Fratelli NOXUS, è arrivato il momento di alzare il livello!</p>
+            <p>
+              Solo pochi possono portare il titolo di <strong>Élite</strong>.
+              <br />Appartenere ai <strong>Noxus Élite</strong> significa
+              rappresentare l’eccellenza, la disciplina e la forza assoluta del
+              clan. <br />Ogni membro <strong>Élite</strong> è parte dell’Élite
+              strategica di Noxus, selezionato per talento, costanza e
+              risultati.
+            </p>
+            <h3>BENEFICI PER I MEMBRI ÉLITE:</h3>
+            <p>
+              Priorità assoluta nei tornei ufficiali — gli
+              <strong>Élite</strong> hanno accesso diretto alle competizioni
+              principali.<br />
+              <strong>Supporto economico</strong> — le iscrizioni ai tornei sono
+              pagate dal clan.<br />
+              <strong>Gestione delle vincite</strong>:<br />
+               → 25% al clan (per il supporto e la crescita) <br />
+               → 25% ciascun player vincente
+            </p>
+            <p>
+              Inserimento nei team ufficiali <strong>ÉLITE</strong> — gli élite
+              rappresentano il cuore competitivo del clan.
+            </p>
+            <p>
+              <strong
+                >La gloria attende chi è pronto a combattere per
+                conquistarla.</strong
+              >
+            </p>
+          </div>
+
+          <div class="elite-video">
+            <video autoplay muted loop playsinline>
+              <source src="/Loghi Main/Elite_2.mp4" type="video/mp4" />
+            </video>
+            <p class="final">
+              NOXUS NON PERDONA.<br /><strong
+                >NESSUNA PIETÀ. SOLO VITTORIE.</strong
+              >
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- RULES -->
+      <section id="rules" class="content">
+        <h2>Regole</h2>
+        <p>
+          <strong>
+            <br />No cheat, glitch, flame <br />Rispetto per tutti <br />Avvisa
+            se assente a lungo <br />Tag [NOXUS] obbligatorio in
+            game/live/social <br />Logo della categoria obbligatorio su Discord
+            <br />Obbligo di restare sempre sul server del clan <br />Puoi
+            giocare con amici esterni, ma solo restando sul server (entrano come
+            ospiti nel loro canale)
+          </strong>
+        </p>
+      </section>
+
+      <!-- JOIN -->
+      <section id="join" class="content">
+        <h2>Unisciti al Clan</h2>
+        <p>NOXUS non è solo un clan. È una famiglia.</p>
+        <p>Unisciti al nostro server Discord e inizia il tuo percorso:</p>
+        <a
+          href="https://discord.gg/hgwdjEHWuk"
+          class="btn btn-discord"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="fab fa-discord"></i> Entra su Discord
+        </a>
+      </section>
+
+      <!-- CONTATTI e SOCIAL -->
+      <section id="contatti">
+        <h2>Contattaci</h2>
+        <form id="contact-form" action="contact.php" method="POST">
+          <input
+            type="email"
+            name="email"
+            placeholder="La tua email"
+            required
+          />
+          <textarea
+            name="message"
+            placeholder="Scrivi il tuo messaggio"
+            required
+          ></textarea>
+          <button type="submit">Invia</button>
+        </form>
+        <div id="form-status" role="status"></div>
+      </section>
+
+      <section id="social" class="social">
+        <h2>Seguici sui Social</h2>
+        <div class="social-icons">
+          <a
+            href="https://www.tiktok.com/@clan_noxus"
+            target="_blank"
+            rel="noopener"
+            aria-label="TikTok"
+            ><i class="fab fa-tiktok"></i
+          ></a>
+          <a
+            href="https://www.twitch.tv/noxus_clan"
+            target="_blank"
+            rel="noopener"
+            aria-label="Twitch"
+            ><i class="fab fa-twitch"></i
+          ></a>
+          <a
+            href="https://www.instagram.com/_noxus_clan_/"
+            target="_blank"
+            rel="noopener"
+            aria-label="Instagram"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a
+            href="https://t.me/noxusclan"
+            target="_blank"
+            rel="noopener"
+            aria-label="Telegram"
+          >
+            <i class="fab fa-telegram"></i>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        #NOXUSÉLITE – Nessuna pietà. Solo vittorie. <br />
+        Created by
+        <span id="openDevModal" class="dev-link">@RealMarcio__</span>
+        & @denisbruno28
+      </p>
+    </footer>
+
+    <!-- 🔥 MODAL ABOUT DEVELOPER -->
+    <div
+      id="devModal"
+      class="modal"
+      aria-hidden="true"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div class="modal-content dev-modal">
+        <span class="close" id="devClose" aria-label="Chiudi modale"
+          >&times;</span
+        >
+        <img
+          src="Streamer/RealMar.jpeg"
+          alt="RealMarcio__"
+          class="dev-avatar"
+        />
+        <h3>RealMarcio__</h3>
+        <p>
+          Front-End Developer & Content Creator.<br />
+          Creator del sito ufficiale <strong>NOXUS CLAN</strong>.<br />
+          “Design, codice e un po’ di follia competitiva.”
+        </p>
+        <div class="player-social-modal">
+          <a
+            href="https://twitch.tv/realmarcio__"
+            target="_blank"
+            aria-label="Twitch"
+          >
+            <i class="fab fa-twitch"></i>
+          </a>
+          <a
+            href="https://tiktok.com/@realmarcio__"
+            target="_blank"
+            aria-label="TikTok"
+          >
+            <i class="fab fa-tiktok"></i>
+          </a>
+          <a
+            href="https://instagram.com/realmarcio__"
+            target="_blank"
+            aria-label="Instagram"
+          >
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <script src="script_fixed.js"></script>
+  </body>
+</html>

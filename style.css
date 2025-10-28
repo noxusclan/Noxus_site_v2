@@ -1,0 +1,2331 @@
+/* =========================================================
+   NOXUS CLAN — STYLE.CSS (completo)
+   - Base e layout originali mantenuti
+   - Vecchi stili toggle rimossi
+   - Nuovo toggle Uiverse integrato (sole/luna)
+   ========================================================= */
+
+/* =========================
+   GOOGLE FONT
+   ========================= */
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&display=swap");
+
+/* =========================
+   THEME VARIABLES (DEFAULT DARK)
+   ========================= */
+:root {
+  /* palette */
+  --bg-gradient: radial-gradient(circle at center, #111 0%, #000 100%);
+  --bg-solid: #000000;
+  --surface: #111111;
+  --text: #f0f0f0;
+  --muted: #cccccc;
+  --accent: #d60000; /* primary red */
+  --accent-strong: #ff0000; /* stronger red for glows */
+  --accent-dim: rgba(214, 0, 0, 0.08);
+  --btn-bg: #d60000;
+  --btn-bg-hover: #a00000;
+  --panel-shadow: rgba(214, 0, 0, 0.4);
+
+  /* neutrals */
+  --white: #ffffff;
+  --black: #000000;
+
+  /* sizes */
+  --header-height: 70px;
+
+  /* hero */
+  --hero-video-filter: brightness(0.4);
+
+  /* transitions */
+  --fast: 120ms;
+  --normal: 300ms;
+  --easing: cubic-bezier(0.22, 0.9, 0.3, 1);
+}
+
+/* LIGHT THEME OVERRIDE */
+body.light-theme {
+  --bg-gradient: linear-gradient(180deg, #f6f7f9 0%, #e6e8ec 100%);
+  --bg-solid: #f6f7f9;
+  --surface: #ffffff;
+  --text: #111111;
+  --muted: #333333;
+  --accent: #b30f0f;
+  --accent-strong: #a80000;
+  --accent-dim: rgba(179, 15, 15, 0.08);
+  --btn-bg: #b30f0f;
+  --btn-bg-hover: #8a0b0b;
+  --panel-shadow: rgba(179, 15, 15, 0.12);
+  --hero-video-filter: brightness(0.55);
+}
+
+/* =========================
+   RESET & BASE
+   ========================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: "Oswald", sans-serif;
+  background: var(--bg-gradient);
+  color: var(--text);
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  transition: background-color var(--normal) var(--easing),
+    color var(--normal) var(--easing);
+  cursor: crosshair;
+}
+
+/* links in logo container */
+.logo-container a {
+  text-decoration: none;
+  color: var(--text);
+  transition: color var(--fast) var(--easing);
+}
+.logo-container a:hover {
+  color: var(--accent);
+}
+
+/* =========================
+   HEADER
+   ========================= */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--surface);
+  border-bottom: 2px solid var(--accent);
+  z-index: 1000;
+  transition: background-color var(--normal) var(--easing),
+    border-color var(--normal) var(--easing);
+}
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.logo {
+  height: 45px;
+  width: 45px;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  max-width: 1400px;
+  margin: auto;
+}
+
+nav ul {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+}
+nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+nav a:hover {
+  color: var(--accent);
+}
+
+/* =========================
+   HERO
+   ========================= */
+.hero {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--bg-solid);
+  text-align: center;
+  padding-top: var(--header-height);
+  position: relative;
+  overflow: hidden;
+}
+.hero video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  filter: var(--hero-video-filter);
+  transition: filter var(--normal) var(--easing);
+}
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+.hero h1 {
+  font-size: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text);
+}
+.hero h1 span {
+  color: var(--accent);
+}
+.hero h1 span {
+  position: relative;
+  animation: glitch 2.2s infinite;
+}
+
+@keyframes glitch {
+  0%,
+  100% {
+    text-shadow: 0 0 2px var(--accent);
+  }
+  20% {
+    text-shadow: 2px 0 red, -2px 0 #ff0000;
+  }
+  40% {
+    text-shadow: -2px 0 #ff0000, 2px 0 red;
+  }
+  60% {
+    text-shadow: 0 0 6px var(--accent-strong);
+  }
+  80% {
+    text-shadow: 1px 0 #ff0000, -1px 0 #ff0000;
+  }
+}
+
+.hero p {
+  margin-top: 15px;
+  font-size: 1.3rem;
+  color: var(--muted);
+}
+
+/* Light theme text override (preferito bianco) */
+body.light-theme .hero h1 {
+  color: #fff;
+}
+body.light-theme .hero h1 span {
+  color: var(--accent);
+}
+body.light-theme .hero p {
+  color: #fff;
+}
+
+/* =========================
+   MAIN / CONTENT
+   ========================= */
+main {
+  margin-top: calc(var(--header-height) - 10px);
+}
+
+.content {
+  padding: 80px 20px;
+  max-width: 1000px;
+  margin: auto;
+  line-height: 1.7;
+}
+.content h2 {
+  color: var(--accent);
+  text-transform: uppercase;
+  border-left: 5px solid var(--accent);
+  padding-left: 10px;
+  margin-bottom: 25px;
+}
+.content p {
+  margin-bottom: 18px;
+  color: var(--text);
+}
+
+/* =========================
+   ELITE
+   ========================= */
+.elite {
+  background: var(--surface);
+  border-top: 2px solid var(--accent);
+  border-bottom: 2px solid var(--accent);
+  transition: border-color var(--normal) var(--easing);
+}
+.elite .final {
+  text-align: center;
+  font-weight: 700;
+  margin-top: 40px;
+  color: var(--accent);
+  letter-spacing: 1px;
+}
+.elite-container {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.elite-text,
+.elite-video {
+  flex: 1;
+  min-width: 300px;
+}
+.elite-video video {
+  width: 100%;
+  border: 2px solid var(--accent);
+  border-radius: 8px;
+}
+
+/* =========================
+   BUTTON
+   ========================= */
+.btn {
+  display: inline-block;
+  background: var(--btn-bg);
+  color: var(--white);
+  padding: 12px 25px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background var(--fast);
+}
+.btn:hover {
+  background: var(--btn-bg-hover);
+}
+
+/* =========================
+   CONTACTS
+   ========================= */
+#contatti {
+  background: var(--surface);
+  border-top: 3px solid var(--accent);
+  border-bottom: 3px solid var(--accent);
+  padding: 60px 30px;
+  max-width: 700px;
+  margin: 80px auto;
+  border-radius: 10px;
+  box-shadow: 0 0 20px var(--panel-shadow);
+}
+#contatti h2 {
+  color: var(--accent);
+  text-transform: uppercase;
+  border-left: 6px solid var(--accent);
+  padding-left: 12px;
+  margin-bottom: 30px;
+  font-size: 2.2rem;
+  letter-spacing: 2px;
+}
+#contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+#contact-form input,
+#contact-form textarea {
+  background: var(--bg-solid);
+  color: var(--text);
+  border: 2px solid var(--accent);
+  border-radius: 8px;
+  padding: 15px 18px;
+  font-family: "Oswald", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+#contact-form input::placeholder,
+#contact-form textarea::placeholder {
+  color: var(--accent);
+  opacity: 0.7;
+}
+#contact-form input:focus,
+#contact-form textarea:focus {
+  border-color: var(--accent-strong);
+  box-shadow: 0 0 12px var(--accent);
+  outline: none;
+}
+#contact-form textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+#contact-form button {
+  background: var(--btn-bg);
+  color: var(--white);
+  font-weight: 700;
+  border: 2px solid var(--white);
+  padding: 16px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+}
+#contact-form button:hover {
+  background: var(--btn-bg-hover);
+  transform: scale(1.05);
+  border-color: var(--accent);
+  box-shadow: 0 0 15px var(--panel-shadow);
+}
+#form-status {
+  margin-top: 20px;
+  font-weight: 700;
+  color: var(--accent);
+  text-align: center;
+  font-size: 1rem;
+}
+
+/* =========================
+   SOCIAL
+   ========================= */
+.social {
+  text-align: center;
+  padding: 60px 20px;
+  background: var(--bg-solid);
+  border-top: 2px solid var(--accent);
+  border-bottom: 2px solid var(--accent);
+}
+.social h2 {
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 25px;
+}
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+.social-icons a {
+  color: var(--accent);
+  font-size: 2.7rem;
+  transition: transform 0.2s, color 0.2s;
+}
+.social-icons a:hover {
+  color: var(--text);
+  transform: scale(1.1);
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+footer {
+  text-align: center;
+  padding: 25px;
+  background: var(--surface);
+  border-top: 2px solid var(--accent);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* =========================
+   Noxus CAROUSEL
+   ========================= */
+.nxs-carousel {
+  position: relative;
+  max-width: 1000px;
+  width: 100%;
+  margin: 30px auto 10px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid var(--accent);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 30px var(--accent-dim) inset;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.6));
+  height: 450px;
+}
+.nxs-window {
+  width: 100%;
+  overflow: hidden;
+  height: 100%;
+  position: relative;
+}
+.nxs-track {
+  display: flex;
+  transition: transform 0.45s var(--easing);
+  height: 100%;
+}
+.nxs-slide {
+  min-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* PLAYER CAROUSEL (hover + glow) */
+#player .nxs-slide img,
+#player .nxs-slide video {
+  width: auto;
+  height: 100%;
+  object-fit: contain;
+  margin: 0 auto;
+  display: block;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.5s ease, box-shadow 0.3s ease;
+}
+#player .nxs-slide img:hover,
+#player .nxs-slide video:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px var(--accent-strong), 0 0 40px var(--accent-strong),
+    0 0 60px rgba(255, 0, 0, 0.6);
+}
+/* =========================================================
+   MAIN TEAM CAROUSEL — NOXUS CLAN
+   ========================================================= */
+
+#mainteam {
+  background: var(--surface);
+  border-top: 2px solid var(--accent);
+  border-bottom: 2px solid var(--accent);
+  padding: 80px 20px;
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+  line-height: 1.7;
+}
+
+#mainteam h2 {
+  color: var(--accent);
+  text-transform: uppercase;
+  border-left: 5px solid var(--accent);
+  padding-left: 10px;
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+#mainteam p {
+  margin-bottom: 18px;
+  color: var(--text);
+  text-align: left;
+}
+
+/* ========== CAROUSEL CONTAINER ========== */
+#mainteam .nxs-carousel {
+  position: relative;
+  max-width: 1000px;
+  width: 100%;
+  margin: 30px auto 10px;
+  height: 400px; /* Altezza fissa desktop */
+  border: 2px solid var(--accent);
+  border-radius: 10px;
+  overflow: hidden;
+  background: radial-gradient(circle at center, #000 40%, #111 100%);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 30px var(--accent-dim) inset;
+}
+
+/* ========== WINDOW & TRACK ========== */
+#mainteam .nxs-window {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+#mainteam .nxs-track {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  transition: transform 0.45s var(--easing);
+}
+
+#mainteam .nxs-slide {
+  flex: 0 0 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ========== IMMAGINI E VIDEO ========== */
+#mainteam .nxs-slide img,
+#mainteam .nxs-slide video {
+  height: 100%; /* riempie in altezza */
+  width: auto; /* mantiene proporzioni originali */
+  object-fit: contain; /* evita tagli */
+  object-position: center;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+/* effetto hover */
+#mainteam .nxs-slide img:hover,
+#mainteam .nxs-slide video:hover {
+  transform: scale(1.05);
+}
+
+/* ========== OVERLAY ========== */
+#mainteam .nxs-slide .overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(214, 0, 0, 0.85);
+  color: var(--white);
+  text-align: center;
+  padding: 8px 0;
+  font-weight: 700;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+#mainteam .nxs-slide:hover .overlay {
+  opacity: 1;
+}
+
+/* ========== BOTTONI E DOTS ========== */
+#mainteam .nxs-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: rgba(0, 0, 0, 0.5);
+  color: var(--white);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 12;
+  transition: background 0.2s, transform 0.15s;
+}
+#mainteam .nxs-btn:hover {
+  background: var(--accent);
+  transform: scale(1.06);
+}
+#mainteam .nxs-prev {
+  left: 14px;
+}
+#mainteam .nxs-next {
+  right: 14px;
+}
+
+#mainteam .nxs-dots {
+  position: absolute;
+  bottom: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 20;
+  background: transparent;
+  padding: 8px 12px;
+  border-radius: 20px;
+}
+
+#mainteam .nxs-dot {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: rgba(214, 0, 0, 0.6);
+  border: 2px solid var(--accent-strong);
+  cursor: pointer;
+  transition: transform 0.18s, opacity 0.18s, background 0.25s, box-shadow 0.25s;
+  opacity: 0.8;
+}
+#mainteam .nxs-dot:hover,
+#mainteam .nxs-dot:focus {
+  background: var(--accent-strong);
+  opacity: 1;
+  transform: scale(1.2);
+  box-shadow: 0 0 10px var(--accent-strong), 0 0 20px var(--white);
+  outline: none;
+}
+#mainteam .nxs-dot.active {
+  background: var(--accent-strong);
+  opacity: 1;
+  transform: scale(1.3);
+  box-shadow: 0 0 15px var(--accent-strong), 0 0 25px rgba(255, 255, 255, 0.9),
+    0 0 40px rgba(255, 0, 0, 0.7);
+  animation: pulse 1.4s infinite ease-in-out;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  #mainteam .nxs-carousel {
+    height: 300px; /* riduce altezza su mobile */
+  }
+  #mainteam h2 {
+    font-size: 1.4rem;
+  }
+  #mainteam p {
+    font-size: 0.95rem;
+  }
+}
+
+/* STREAMER & SPONSOR CAROUSEL */
+#streamer .nxs-slide img,
+#streamer .nxs-slide video,
+#sponsor .nxs-slide img,
+#sponsor .nxs-slide video {
+  width: auto;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  border-radius: 8px;
+  transition: none;
+  box-shadow: none;
+}
+
+/* Sponsor Carousel Fix */
+#sponsor .nxs-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  height: 100%;
+}
+#sponsor .nxs-slide img,
+#sponsor .nxs-slide video {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+  border-radius: 8px;
+  margin: 0 auto;
+  box-shadow: none;
+  transition: none;
+}
+
+/* =========================
+   OVERLAY
+   ========================= */
+.nxs-slide a {
+  display: block;
+  position: relative;
+  cursor: pointer;
+}
+.nxs-slide .overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  background: rgba(214, 0, 0, 0.8);
+  color: var(--white);
+  font-weight: 700;
+  padding: 8px 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.nxs-slide a:hover .overlay {
+  opacity: 1;
+}
+
+/* =========================
+   BOTTONI CAROSELLO
+   ========================= */
+.nxs-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: rgba(0, 0, 0, 0.5);
+  color: var(--white);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 12;
+  transition: background 0.2s, transform 0.15s;
+}
+.nxs-btn:hover {
+  background: var(--accent);
+  transform: scale(1.06);
+}
+.nxs-prev {
+  left: 14px;
+}
+.nxs-next {
+  right: 14px;
+}
+
+/* =========================
+   NXS DOTS — PREMIUM
+   ========================= */
+.nxs-dots {
+  position: absolute;
+  bottom: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 20;
+  background: transparent;
+  padding: 8px 12px;
+  border-radius: 20px;
+}
+.nxs-dot {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: rgba(214, 0, 0, 0.6);
+  border: 2px solid var(--accent-strong);
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.18s, opacity 0.18s, background 0.25s, box-shadow 0.25s;
+  opacity: 0.8;
+}
+.nxs-dot:hover,
+.nxs-dot:focus {
+  background: var(--accent-strong);
+  opacity: 1;
+  transform: scale(1.2);
+  box-shadow: 0 0 10px var(--accent-strong), 0 0 20px var(--white);
+  outline: none;
+}
+.nxs-dot.active {
+  background: var(--accent-strong);
+  opacity: 1;
+  transform: scale(1.3);
+  box-shadow: 0 0 15px var(--accent-strong), 0 0 25px rgba(255, 255, 255, 0.9),
+    0 0 40px rgba(255, 0, 0, 0.7);
+  animation: pulse 1.4s infinite ease-in-out;
+}
+.nxs-dot::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 80, 80, 0.5);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+.nxs-dot:active::after {
+  width: 200%;
+  height: 200%;
+  opacity: 1;
+  animation: ripple 0.45s ease-out;
+}
+
+/* animations */
+@keyframes ripple {
+  from {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0.9;
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+  }
+}
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7), 0 0 8px var(--accent-strong),
+      0 0 16px rgba(255, 255, 255, 0.8);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 0, 0, 0), 0 0 12px var(--accent-strong),
+      0 0 25px rgba(255, 255, 255, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 0, 0, 0), 0 0 8px var(--accent-strong),
+      0 0 16px rgba(255, 255, 255, 0.8);
+  }
+}
+
+/* spacing for dots visibility */
+.nxs-carousel {
+  margin-bottom: 45px;
+  overflow: visible !important;
+}
+
+/* =========================
+   MODAL PLAYER / STAFF
+   ========================= */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  justify-content: center;
+  align-items: center;
+}
+.modal[aria-hidden="false"] {
+  display: flex;
+}
+.modal-content {
+  background: var(--surface);
+  color: var(--text);
+  padding: 25px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 450px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 0 15px var(--panel-shadow);
+}
+/* =========================================================
+   MODAL PLAYER — IMMAGINE CERCHIO PULITA (FIX FINALE 2025)
+   ========================================================= */
+#modalImg {
+  width: 230px;
+  aspect-ratio: 1 / 1; /* 🔒 forma sempre quadrata */
+  border-radius: 50%; /* 🔥 cerchio perfetto */
+  object-fit: cover; /* 🔥 riempie il cerchio senza distorsioni */
+  object-position: center 30%; /* regola verticale (puoi variare 20–40%) */
+  border: 4px solid var(--accent-strong);
+  background: #000;
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.6);
+  display: block;
+  margin: 0 auto 25px;
+  overflow: hidden;
+  clip-path: circle(50% at 50% 50%); /* 🔒 ritaglio totale */
+  transform: scale(1);
+  animation: avatarPop 0.6s ease forwards;
+  opacity: 0;
+}
+
+@keyframes avatarPop {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Evita che il contenitore tagli l’immagine */
+.modal-content {
+  overflow: visible !important;
+  animation: fadeZoom 0.4s ease forwards;
+}
+
+@keyframes fadeZoom {
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  #modalImg {
+    width: 160px;
+  }
+}
+
+.modal-content h3 {
+  color: #ff3333;
+  margin-bottom: 10px;
+  font-size: 22px;
+}
+.modal-content p {
+  font-size: 14px;
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+.modal-content .btn {
+  display: inline-block;
+  background: var(--accent-strong);
+  color: var(--white);
+  padding: 10px 18px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+.modal-content .btn:hover {
+  background: #ff3333;
+}
+.close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 28px;
+  color: var(--text);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.close:hover {
+  color: var(--accent);
+}
+
+/* =========================
+   HAMBURGER MENU RESPONSIVE
+   ========================= */
+.hamburger {
+  display: none;
+  font-size: 1.9rem;
+  color: var(--text);
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.hamburger:hover {
+  color: var(--accent);
+}
+
+/* =========================
+   HAMBURGER MENU — SLIDE + GLOW EFFECT
+   ========================= */
+@media (max-width: 768px) {
+  .header-container {
+    padding: 10px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .hamburger {
+    display: block;
+    z-index: 1200;
+  }
+
+  nav {
+    position: fixed;
+    top: 65px;
+    right: -100%;
+    width: 70%;
+    max-width: 320px;
+    height: calc(100% - 80px);
+    background: rgba(0, 0, 0, 0.95);
+    border-left: 2px solid rgba(214, 0, 0, 0.8);
+    border-radius: 12px 0 0 12px;
+    box-shadow: -5px 0 25px rgba(255, 0, 0, 0.25),
+      inset -3px 0 15px rgba(255, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 0;
+    gap: 22px;
+    transition: right 0.4s cubic-bezier(0.22, 0.9, 0.3, 1);
+    z-index: 1100;
+    backdrop-filter: blur(6px);
+  }
+
+  nav.active {
+    right: 0;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+  }
+
+  nav ul li {
+    opacity: 0;
+    transform: translateX(20px);
+    transition: all 0.3s ease;
+  }
+
+  nav.active ul li {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  nav.active ul li:nth-child(1) {
+    transition-delay: 0.05s;
+  }
+  nav.active ul li:nth-child(2) {
+    transition-delay: 0.1s;
+  }
+  nav.active ul li:nth-child(3) {
+    transition-delay: 0.15s;
+  }
+  nav.active ul li:nth-child(4) {
+    transition-delay: 0.2s;
+  }
+  nav.active ul li:nth-child(5) {
+    transition-delay: 0.25s;
+  }
+  nav.active ul li:nth-child(6) {
+    transition-delay: 0.3s;
+  }
+  nav.active ul li:nth-child(7) {
+    transition-delay: 0.35s;
+  }
+  nav.active ul li:nth-child(8) {
+    transition-delay: 0.4s;
+  }
+  nav.active ul li:nth-child(9) {
+    transition-delay: 0.45s;
+  }
+
+  nav a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: all 0.25s ease;
+  }
+
+  nav a:hover {
+    color: var(--accent);
+    text-shadow: 0 0 8px var(--accent), 0 0 16px var(--accent-strong);
+    transform: scale(1.05);
+  }
+
+  main {
+    margin-top: 90px;
+  }
+}
+/* =========================
+   RESPONSIVE
+   ========================= */
+@media (max-width: 1024px) {
+  .header-container {
+    padding: 12px 30px;
+  }
+  .hero h1 {
+    font-size: 2.6rem;
+  }
+}
+@media (max-width: 768px) {
+  .header-container {
+    padding: 10px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .hamburger {
+    display: block;
+    z-index: 1200;
+  }
+  nav {
+    position: fixed;
+    top: 65px;
+    right: -100%;
+    width: 65%;
+    max-width: 300px;
+    height: calc(100% - 80px);
+    background: rgba(0, 0, 0, 0.95);
+    border-left: 2px solid rgba(214, 0, 0, 0.8);
+    border-radius: 8px 0 0 8px;
+    box-shadow: -2px 0 15px rgba(214, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px 0;
+    gap: 18px;
+    transition: right 0.35s ease;
+    z-index: 1100;
+    backdrop-filter: blur(6px);
+  }
+  nav.active {
+    right: 0;
+  }
+  nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+  }
+  nav a {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+  }
+  main {
+    margin-top: 90px;
+  }
+  .staff-card {
+    flex: 1 1 100%;
+    max-width: 420px;
+  }
+  .nxs-carousel {
+    height: 380px;
+  }
+}
+
+/* DOTS additional tweaks */
+.nxs-carousel {
+  overflow: visible !important;
+}
+.nxs-dots {
+  position: absolute;
+  bottom: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  z-index: 15;
+}
+.nxs-dot {
+  width: 12px;
+  height: 12px;
+  background: #1a1a1a;
+  border: 2px solid var(--accent-strong);
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 6px rgba(255, 0, 0, 0.3);
+  overflow: hidden;
+}
+.nxs-dot::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  background: rgba(255, 0, 0, 0.15);
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.4s ease;
+}
+.nxs-dot.active {
+  background: var(--accent-strong);
+  box-shadow: 0 0 12px var(--accent-strong), 0 0 30px rgba(255, 0, 0, 0.8);
+  animation: pulse-glow 1.5s infinite ease-in-out;
+}
+.nxs-dot.active::before {
+  opacity: 1;
+  transform: scale(1);
+}
+.nxs-dot::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  background: rgba(255, 0, 0, 0.4);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+}
+.nxs-dot:active::after {
+  animation: ripple 0.6s ease-out;
+}
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 6px var(--accent-strong), 0 0 15px rgba(255, 0, 0, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 12px var(--accent-strong), 0 0 30px rgba(255, 0, 0, 1);
+  }
+  100% {
+    box-shadow: 0 0 6px var(--accent-strong), 0 0 15px rgba(255, 0, 0, 0.6);
+  }
+}
+
+/* =========================
+   FIX: NAV MOBILE IN LIGHT MODE
+   ========================= */
+body.light-theme nav {
+  background: rgba(255, 255, 255, 0.92);
+  border-left: 2px solid var(--accent);
+}
+body.light-theme nav a {
+  color: var(--text);
+}
+body.light-theme nav a:hover {
+  color: var(--accent);
+}
+
+/* =========================
+   FIX DEFINITIVO: STREAMER CAROUSEL
+   ========================= */
+#streamer .nxs-carousel {
+  height: 450px;
+  position: relative;
+  border: 2px solid var(--accent);
+  border-radius: 10px;
+  overflow: hidden;
+  background: radial-gradient(circle at center, #000 40%, #111 100%);
+}
+#streamer .nxs-window {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+#streamer .nxs-track {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  transition: transform 0.45s ease;
+}
+#streamer .nxs-slide {
+  flex: 0 0 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+#streamer .nxs-slide a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: auto;
+}
+#streamer .nxs-slide img,
+#streamer .nxs-slide video {
+  display: block;
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  object-position: center;
+  margin: 0 auto;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+#streamer .nxs-slide img:hover,
+#streamer .nxs-slide video:hover {
+  transform: scale(1.05);
+}
+#streamer .nxs-slide .overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(214, 0, 0, 0.85);
+  color: var(--white);
+  text-align: center;
+  padding: 8px 0;
+  font-weight: 700;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+#streamer .nxs-slide:hover .overlay {
+  opacity: 1;
+}
+#streamer .nxs-btn {
+  z-index: 10;
+}
+@media (max-width: 768px) {
+  #streamer .nxs-carousel {
+    height: 320px;
+  }
+}
+
+/* =========================================================
+   NUOVO TOGGLE UIVERSE (sole/luna) — pulito e senza conflitti
+   ========================================================= */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 3.5em;
+  height: 2em;
+  margin-left: 10px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #333;
+  transition: 0.4s;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.circle {
+  position: absolute;
+  height: 1.4em;
+  width: 1.4em;
+  border-radius: 20px;
+  left: 0.3em;
+  bottom: 0.3em;
+  background-color: #fff000;
+  transform: rotate(360deg) translateX(0);
+  transition: 0.4s;
+}
+
+/* Stato attivo: “light” */
+.switch input:checked + .slider .circle {
+  transform: rotate(0deg) translateX(1.5em) !important;
+}
+.switch input:checked + .slider .circle .shine {
+  transform: translate(0%, 0%) !important;
+}
+.switch input:checked + .slider .circle .moon {
+  left: -10%;
+  opacity: 1;
+  transform: translateY(-60%);
+}
+
+/* Luna */
+.moon {
+  position: absolute;
+  left: -100%;
+  top: 50%;
+  opacity: 0;
+  background-color: #333;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 99999px;
+  transform: translateY(-50%);
+  transition: all 0.4s;
+}
+
+/* Raggi del sole */
+.shine {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.25rem;
+  height: 0.25rem;
+  background-color: #fff000;
+  border-radius: 1rem;
+  transition: all 0.4s;
+}
+.shine-1 {
+  transform: translate(-50%, -375%);
+}
+.shine-2 {
+  transform: translate(175%, -275%);
+}
+.shine-3 {
+  transform: translate(275%, -50%);
+}
+.shine-4 {
+  transform: translate(175%, 175%);
+}
+.shine-5 {
+  transform: translate(-50%, 275%);
+}
+.shine-6 {
+  transform: translate(-275%, 175%);
+}
+.shine-7 {
+  transform: translate(-375%, -50%);
+}
+.shine-8 {
+  transform: translate(-275%, -275%);
+}
+
+/* Posizionamento in header */
+.logo-container .switch {
+  transform: scale(0.85);
+  transform-origin: left center;
+}
+
+@media (max-width: 768px) {
+  .logo-container .switch {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .hamburger .switch {
+    display: inline-block;
+    transform: scale(0.9);
+  }
+}
+
+/* Evita “fluttuazioni” del toggle e conflitti con il menu aperto */
+.switch,
+.slider,
+.circle {
+  will-change: transform, opacity;
+}
+body.menu-open .hamburger .switch {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+/* === FIX: Toggle visibile anche con menu aperto === */
+body.menu-open .hamburger .switch {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  position: fixed;
+  top: 20px;
+  right: 70px;
+  z-index: 2000;
+}
+
+/* ======================
+   TOGGLE UIVERSE — GIALLO/NERO
+   ====================== */
+
+.switch {
+  font-size: 17px;
+  position: relative;
+  display: inline-block;
+  width: 3.5em;
+  height: 2em;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #333;
+  transition: 0.4s;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.circle {
+  position: absolute;
+  content: "";
+  height: 1.4em;
+  width: 1.4em;
+  border-radius: 20px;
+  left: 0.3em;
+  bottom: 0.3em;
+  background-color: #fff000;
+  transform: rotate(360deg) translateX(0);
+  transition: 0.4s;
+}
+
+.switch input:checked + .slider .circle {
+  transform: rotate(0deg) translateX(1.5em) !important;
+}
+
+.switch input:checked + .slider .circle .shine {
+  transform: translate(0%, 0%) !important;
+}
+
+.switch input:checked + .slider .circle .moon {
+  left: -10%;
+  opacity: 1;
+  transform: translateY(-60%);
+}
+
+.moon {
+  position: absolute;
+  left: -100%;
+  top: 50%;
+  opacity: 0;
+  background-color: #333;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 99999px;
+  transform: translateY(-50%);
+  transition: all 0.4s;
+}
+
+.shine {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.25rem;
+  height: 0.25rem;
+  background-color: #fff000;
+  border-radius: 1rem;
+  transition: all 0.4s;
+}
+
+.shine-1 {
+  transform: translate(-50%, -375%);
+}
+.shine-2 {
+  transform: translate(175%, -275%);
+}
+.shine-3 {
+  transform: translate(275%, -50%);
+}
+.shine-4 {
+  transform: translate(175%, 175%);
+}
+.shine-5 {
+  transform: translate(-50%, 275%);
+}
+.shine-6 {
+  transform: translate(-275%, 175%);
+}
+.shine-7 {
+  transform: translate(-375%, -50%);
+}
+.shine-8 {
+  transform: translate(-275%, -275%);
+}
+
+/* POSIZIONAMENTO HEADER */
+.logo-container .switch {
+  transform: scale(0.8);
+  transform-origin: left center;
+  margin-left: 8px;
+}
+.hamburger .switch {
+  display: none;
+}
+
+/* MOSTRA SOLO IN MOBILE */
+@media (max-width: 768px) {
+  .logo-container .switch {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .hamburger .switch {
+    display: inline-flex;
+    transform: scale(0.9);
+  }
+}
+
+/* FIX: toggle non deve fluttuare o sovrapporsi */
+.hamburger .switch,
+.logo-container .switch {
+  transition: none !important;
+  position: relative;
+}
+/* =========================================================
+   SMOKE ENTRY EFFECT — NOXUS CLAN LOGO
+   ========================================================= */
+@keyframes smokeFade {
+  0% {
+    filter: blur(25px) brightness(0.2);
+    opacity: 0;
+    transform: scale(1.6);
+  }
+  40% {
+    opacity: 1;
+    filter: blur(15px) brightness(0.5);
+  }
+  70% {
+    transform: scale(1.05);
+    filter: blur(8px) brightness(0.8);
+  }
+  100% {
+    transform: scale(1);
+    filter: blur(0px) brightness(1);
+    opacity: 1;
+  }
+}
+
+.smoke-logo {
+  opacity: 0;
+  animation: smokeFade 2.4s ease-out forwards;
+  animation-delay: 0.3s;
+  filter: blur(25px) brightness(0.2);
+  transform: scale(1.6);
+}
+
+/* glow dinamico post-animazione */
+.smoke-logo.glow {
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.6), 0 0 40px rgba(255, 0, 0, 0.3),
+    0 0 80px rgba(255, 0, 0, 0.2);
+  transition: box-shadow 0.6s ease;
+}
+/* =========================
+   PLAYER MODAL — SOCIAL ICONS
+   ========================= */
+.player-social-modal {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 15px;
+}
+
+.player-social-modal a {
+  color: var(--accent);
+  font-size: 2rem;
+  transition: transform 0.25s ease, color 0.25s ease, text-shadow 0.3s ease;
+}
+
+.player-social-modal a:hover {
+  color: var(--white);
+  transform: scale(1.15);
+  text-shadow: 0 0 8px var(--accent), 0 0 20px var(--accent-strong);
+}
+/* =========================
+   STAFF / PLAYER MODAL — SOCIAL ICONS FIX
+   ========================= */
+.staff-social-modal,
+.player-social-modal {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 20px;
+}
+
+.staff-social-modal a,
+.player-social-modal a {
+  color: var(--accent);
+  font-size: 2rem;
+  transition: transform 0.25s ease, color 0.25s ease, text-shadow 0.25s ease;
+}
+
+.staff-social-modal a:hover,
+.player-social-modal a:hover {
+  color: var(--white);
+  transform: scale(1.2);
+  text-shadow: 0 0 10px var(--accent-strong), 0 0 20px var(--accent-strong);
+}
+
+/* =========================
+   FADE-UP ANIMATION — NOXUS STYLE
+   ========================= */
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.22, 0.9, 0.3, 1);
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* effetto glow rosso leggero durante l’entrata */
+.fade-up.visible h2 {
+  text-shadow: 0 0 10px var(--accent-strong), 0 0 25px rgba(255, 0, 0, 0.4);
+  transition: text-shadow 0.8s ease-in-out;
+}
+
+/* =========================================================
+   STAFF SECTION — NOXUS CLAN (3D FLIP + GRID PERFECT - FIX 2025 — REBUILD)
+   ========================================================= */
+
+.staff-cards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(260px, 1fr));
+  gap: 35px;
+  justify-content: center;
+  align-items: start;
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+/* === CARD CONTENITORE === */
+.staff-card {
+  perspective: 1000px;
+  background: transparent;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* === WRAPPER INTERNO === */
+.staff-card-inner {
+  position: relative;
+  width: 100%;
+  max-width: 280px;
+  height: 330px;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.22, 0.9, 0.3, 1);
+  border-radius: 14px;
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 18px rgba(214, 0, 0, 0.25);
+  background: var(--surface);
+  overflow: hidden;
+}
+
+/* === FRONT & BACK === */
+.staff-card-front,
+.staff-card-back {
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  backface-visibility: hidden; /* impedisce testo specchiato */
+  transform-style: preserve-3d;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  background: var(--surface);
+  color: var(--text);
+  transition: all 0.3s ease;
+}
+
+/* === FRONT === */
+.staff-card-front {
+  transform: rotateY(0deg);
+  z-index: 2;
+}
+
+.staff-card-front img {
+  width: 115px;
+  height: 115px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--accent);
+  margin-bottom: 12px;
+  transition: transform 0.3s ease;
+}
+.staff-card-front h3 {
+  color: var(--accent);
+  font-size: 1.25rem;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+.staff-card-front p {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* === BACK === */
+.staff-card-back {
+  transform: rotateY(180deg);
+  background: linear-gradient(180deg, #111 0%, #000 100%);
+  color: var(--text);
+  justify-content: center;
+  padding: 25px;
+  z-index: 1;
+}
+
+.staff-card-back h4 {
+  color: var(--accent);
+  font-size: 1.15rem;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.staff-card-back p {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.45;
+  padding: 0 12px;
+  transform: none !important; /* ✅ testo dritto e normale */
+}
+/* === FIX DEFINITIVO STAFF CARD (NOXUS 2025) === */
+.staff-card {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.staff-card-inner {
+  position: relative;
+  width: 100%;
+  max-width: 280px;
+  height: 330px;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.22, 0.9, 0.3, 1);
+  border-radius: 14px;
+  border: 2px solid var(--accent);
+  background: var(--surface);
+  box-shadow: 0 0 20px rgba(214, 0, 0, 0.25);
+  overflow: visible;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.staff-card-front,
+.staff-card-back {
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform-style: preserve-3d;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+/* FRONT */
+.staff-card-front {
+  transform: rotateY(0deg) translateZ(1px);
+  background: var(--surface);
+  z-index: 2;
+}
+.staff-card-front img {
+  width: 115px;
+  height: 115px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--accent);
+  margin-bottom: 12px;
+  transition: transform 0.3s ease;
+}
+.staff-card-front h3 {
+  color: var(--accent);
+  font-size: 1.25rem;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+.staff-card-front p {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* BACK */
+.staff-card-back {
+  transform: rotateY(180deg) translateZ(1px);
+  background: linear-gradient(180deg, #111 0%, #000 100%);
+  justify-content: center;
+  color: var(--text);
+}
+.staff-card-back h4 {
+  color: var(--accent);
+  font-size: 1.15rem;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+.staff-card-back p {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+/* FLIP EFFECT */
+.staff-card:hover .staff-card-inner {
+  transform: rotateY(180deg) translateZ(0);
+  box-shadow: 0 0 25px var(--accent-strong), 0 0 45px rgba(255, 0, 0, 0.4);
+}
+/* === STAFF SOCIAL ICONS — VISIBILI SU RETRO CARD === */
+.staff-social {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 15px;
+}
+.staff-social a {
+  color: var(--accent);
+  font-size: 1.6rem;
+  transition: transform 0.25s ease, color 0.25s ease, text-shadow 0.25s ease;
+}
+.staff-social a:hover {
+  color: var(--white);
+  transform: scale(1.2);
+  text-shadow: 0 0 10px var(--accent-strong), 0 0 25px var(--accent-strong);
+}
+/* =========================================================
+   STAFF RESPONSIVE GRID — NOXUS CLAN
+   ========================================================= */
+
+/* Desktop (default) — già 4 colonne */
+.staff-cards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(260px, 1fr));
+  gap: 35px;
+  justify-content: center;
+  align-items: start;
+}
+
+/* Tablet (max 1024px): 2 colonne */
+@media (max-width: 1024px) {
+  .staff-cards {
+    grid-template-columns: repeat(2, minmax(240px, 1fr));
+    gap: 30px;
+  }
+}
+
+/* Smartphone (max 600px): 1 colonna */
+@media (max-width: 600px) {
+  .staff-cards {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .staff-card-inner {
+    max-width: 90%;
+    height: auto;
+    min-height: 320px;
+  }
+}
+/* =========================================================
+   FIX — STAFF CARD BACK IN LIGHT THEME (2025)
+   ========================================================= */
+body.light-theme .staff-card-back {
+  background: linear-gradient(180deg, #f7f7f7 0%, #e0e0e0 100%);
+  color: #111; /* testo scuro leggibile */
+}
+
+body.light-theme .staff-card-back h4 {
+  color: var(--accent); /* mantiene il rosso */
+}
+
+body.light-theme .staff-card-back p {
+  color: #333; /* grigio scuro per leggibilità */
+}
+/* =========================================================
+   SOCIAL ICONS — NOXUS NEON PULSE EFFECT (2025)
+   ========================================================= */
+
+.social-icons a {
+  position: relative;
+  color: var(--accent);
+  font-size: 2.7rem;
+  transition: transform 0.25s ease, color 0.25s ease, text-shadow 0.3s ease;
+}
+
+.social-icons a:hover {
+  transform: scale(1.15);
+  text-shadow: 0 0 15px var(--accent), 0 0 35px var(--accent-strong);
+  animation: pulseGlow 1.3s infinite ease-in-out;
+}
+
+/* Colore specifico per Telegram */
+.social-icons a[aria-label="Telegram"]:hover {
+  color: #0088cc;
+  text-shadow: 0 0 15px #00aaff, 0 0 35px rgba(0, 136, 204, 0.8);
+  animation: pulseTelegram 1.3s infinite ease-in-out;
+}
+
+/* === Animazioni === */
+@keyframes pulseGlow {
+  0% {
+    text-shadow: 0 0 10px var(--accent), 0 0 20px rgba(255, 0, 0, 0.6);
+  }
+  50% {
+    text-shadow: 0 0 20px var(--accent-strong), 0 0 40px rgba(255, 0, 0, 0.9);
+  }
+  100% {
+    text-shadow: 0 0 10px var(--accent), 0 0 20px rgba(255, 0, 0, 0.6);
+  }
+}
+
+@keyframes pulseTelegram {
+  0% {
+    text-shadow: 0 0 10px #00aaff, 0 0 20px rgba(0, 136, 204, 0.6);
+  }
+  50% {
+    text-shadow: 0 0 20px #00ccff, 0 0 40px rgba(0, 136, 204, 0.9);
+  }
+  100% {
+    text-shadow: 0 0 10px #00aaff, 0 0 20px rgba(0, 136, 204, 0.6);
+  }
+}
+/* =========================================================
+   NOXUS CLAN — SOCIAL ICONS FULL NEON PULSE EFFECT (2025)
+   ========================================================= */
+
+/* Base styling */
+.social-icons a {
+  position: relative;
+  font-size: 2.7rem;
+  transition: transform 0.25s ease, color 0.25s ease, text-shadow 0.3s ease;
+  color: var(--accent);
+}
+
+.social-icons a:hover {
+  transform: scale(1.15);
+  animation: pulseDefault 1.3s infinite ease-in-out;
+}
+
+/* === Specific Colors === */
+
+/* TikTok — fucsia / azzurro */
+.social-icons a[aria-label="TikTok"]:hover {
+  color: #ff0050;
+  text-shadow: 0 0 12px #ff0050, 0 0 25px #00f2ea;
+  animation: pulseTikTok 1.5s infinite ease-in-out;
+}
+
+/* Twitch — viola */
+.social-icons a[aria-label="Twitch"]:hover {
+  color: #9146ff;
+  text-shadow: 0 0 12px #9146ff, 0 0 25px rgba(145, 70, 255, 0.7);
+  animation: pulseTwitch 1.5s infinite ease-in-out;
+}
+
+/* Instagram — rosa/arancio */
+.social-icons a[aria-label="Instagram"]:hover {
+  color: #e1306c;
+  text-shadow: 0 0 12px #e1306c, 0 0 25px #f77737,
+    0 0 35px rgba(245, 96, 64, 0.8);
+  animation: pulseInstagram 1.5s infinite ease-in-out;
+}
+
+/* Telegram — blu */
+.social-icons a[aria-label="Telegram"]:hover {
+  color: #0088cc;
+  text-shadow: 0 0 12px #00aaff, 0 0 25px rgba(0, 136, 204, 0.8);
+  animation: pulseTelegram 1.5s infinite ease-in-out;
+}
+
+/* === Default fallback (rosso Noxus) === */
+@keyframes pulseDefault {
+  0%,
+  100% {
+    text-shadow: 0 0 12px var(--accent), 0 0 24px rgba(255, 0, 0, 0.7);
+  }
+  50% {
+    text-shadow: 0 0 20px var(--accent-strong), 0 0 40px rgba(255, 0, 0, 1);
+  }
+}
+
+/* TikTok pulse */
+@keyframes pulseTikTok {
+  0%,
+  100% {
+    text-shadow: 0 0 10px #ff0050, 0 0 20px #00f2ea;
+  }
+  50% {
+    text-shadow: 0 0 25px #ff0050, 0 0 40px #00f2ea;
+  }
+}
+
+/* Twitch pulse */
+@keyframes pulseTwitch {
+  0%,
+  100% {
+    text-shadow: 0 0 10px #9146ff, 0 0 20px rgba(145, 70, 255, 0.7);
+  }
+  50% {
+    text-shadow: 0 0 25px #9146ff, 0 0 40px rgba(145, 70, 255, 1);
+  }
+}
+
+/* Instagram pulse */
+@keyframes pulseInstagram {
+  0%,
+  100% {
+    text-shadow: 0 0 10px #e1306c, 0 0 20px #f77737;
+  }
+  50% {
+    text-shadow: 0 0 25px #f56040, 0 0 45px #e1306c;
+  }
+}
+
+/* Telegram pulse */
+@keyframes pulseTelegram {
+  0%,
+  100% {
+    text-shadow: 0 0 10px #00aaff, 0 0 20px rgba(0, 136, 204, 0.7);
+  }
+  50% {
+    text-shadow: 0 0 25px #00ccff, 0 0 45px rgba(0, 136, 204, 1);
+  }
+}
+/* =========================
+   FIX IMMAGINE MODALE STAFF (2025)
+   ========================= */
+#staffImg {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  border: 4px solid var(--accent-strong);
+  background: #000;
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.6);
+  display: block;
+  margin: 0 auto 20px;
+  transform: scale(1); /* 🔒 blocca l'ingrandimento anomalo */
+  clip-path: circle(50%);
+  animation: avatarPopStaff 0.5s ease forwards;
+  opacity: 0;
+}
+
+@keyframes avatarPopStaff {
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  #staffImg {
+    width: 160px;
+    height: 160px;
+  }
+}
+/* === JOIN SECTION — NOXUS STYLE UPGRADE === */
+#join h2 {
+  color: var(--accent-strong);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px var(--accent-strong), 0 0 25px rgba(255, 0, 0, 0.5);
+  animation: glowPulse 2.5s infinite alternate ease-in-out;
+}
+
+@keyframes glowPulse {
+  from {
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+  }
+  to {
+    text-shadow: 0 0 25px rgba(255, 0, 0, 1), 0 0 40px rgba(255, 0, 0, 0.5);
+  }
+}
+.btn-discord {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #5865f2;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  padding: 14px 28px;
+  box-shadow: 0 0 20px rgba(88, 101, 242, 0.4);
+  transition: all 0.3s ease;
+}
+
+.btn-discord i {
+  font-size: 1.4rem;
+  transition: transform 0.3s ease;
+}
+
+.btn-discord:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(88, 101, 242, 0.7), 0 0 50px rgba(88, 101, 242, 0.4);
+}
+
+.btn-discord:hover i {
+  transform: rotate(12deg);
+}
+/* =========================
+   ABOUT DEVELOPER MODAL — NOXUS STYLE
+   ========================= */
+.dev-link {
+  color: var(--accent);
+  font-weight: 700;
+  cursor: pointer;
+  text-shadow: 0 0 5px var(--accent);
+  transition: color 0.3s, text-shadow 0.3s;
+}
+.dev-link:hover {
+  color: #fff;
+  text-shadow: 0 0 10px var(--accent), 0 0 25px var(--accent-strong);
+}
+
+/* Modal personalizzata */
+.dev-modal {
+  background: radial-gradient(circle at center, #0a0a0a 0%, #000 100%);
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 20px var(--accent-strong);
+  text-align: center;
+}
+
+.dev-avatar {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 3px solid var(--accent);
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+  margin-bottom: 15px;
+  animation: avatarPop 0.5s ease forwards;
+  opacity: 0;
+}
+.dev-modal h3 {
+  color: var(--accent);
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+.dev-modal p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-bottom: 18px;
+  line-height: 1.5;
+}
+.dev-modal .player-social-modal a {
+  font-size: 1.8rem;
+  transition: transform 0.3s, text-shadow 0.3s;
+}
+.dev-modal .player-social-modal a:hover {
+  transform: scale(1.2);
+  text-shadow: 0 0 10px var(--accent), 0 0 25px var(--accent-strong);
+}
+/* === NOXUS CUSTOM CURSOR (Mirino Luminoso) === */
+body {
+  cursor: none; /* nasconde il cursore di default */
+}
+
+.noxus-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 99999;
+  border: 2px solid rgba(255, 0, 0, 0.9);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.6), 0 0 25px rgba(255, 0, 0, 0.4),
+    0 0 50px rgba(255, 0, 0, 0.2);
+  transition: transform 0.08s ease-out, box-shadow 0.2s ease;
+}
+
+.noxus-cursor.click {
+  transform: translate(-50%, -50%) scale(0.8);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.9), 0 0 50px rgba(255, 0, 0, 1);
+}
+
+/* =========================
+   FIX CURSORE — DISATTIVATO SU MOBILE
+   ========================= */
+@media (max-width: 768px) {
+  .noxus-cursor {
+    display: none !important;
+  }
+}
+
+/* ======================
+   EFFETTO TOUCH RIPPLE (solo mobile)
+   ====================== */
+.touch-ripple {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 0, 0, 0.7) 0%,
+    rgba(255, 0, 0, 0) 70%
+  );
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  animation: rippleFade 0.6s ease-out forwards;
+  z-index: 9999;
+}
+
+@keyframes rippleFade {
+  from {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 1;
+  }
+  to {
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 0;
+  }
+}
