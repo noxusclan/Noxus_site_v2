@@ -2168,50 +2168,6 @@ body.light-theme .staff-card-back p {
     height: 160px;
   }
 }
-/* === JOIN SECTION — NOXUS STYLE UPGRADE === */
-#join h2 {
-  color: var(--accent-strong);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  text-shadow: 0 0 10px var(--accent-strong), 0 0 25px rgba(255, 0, 0, 0.5);
-  animation: glowPulse 2.5s infinite alternate ease-in-out;
-}
-
-@keyframes glowPulse {
-  from {
-    text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
-  }
-  to {
-    text-shadow: 0 0 25px rgba(255, 0, 0, 1), 0 0 40px rgba(255, 0, 0, 0.5);
-  }
-}
-.btn-discord {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: #5865f2;
-  color: #fff;
-  font-weight: 700;
-  border-radius: 8px;
-  font-size: 1.1rem;
-  padding: 14px 28px;
-  box-shadow: 0 0 20px rgba(88, 101, 242, 0.4);
-  transition: all 0.3s ease;
-}
-
-.btn-discord i {
-  font-size: 1.4rem;
-  transition: transform 0.3s ease;
-}
-
-.btn-discord:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 25px rgba(88, 101, 242, 0.7), 0 0 50px rgba(88, 101, 242, 0.4);
-}
-
-.btn-discord:hover i {
-  transform: rotate(12deg);
-}
 /* =========================
    ABOUT DEVELOPER MODAL — NOXUS STYLE
    ========================= */
@@ -2329,3 +2285,61 @@ body {
     opacity: 0;
   }
 }
+
+#join {
+  text-align: center;
+  background: var(--surface);
+  border-top: 2px solid var(--accent);
+  border-bottom: 2px solid var(--accent);
+  padding: 80px 20px;
+  max-width: 900px;
+  margin: 80px auto;
+  border-radius: 12px;
+  box-shadow: 0 0 20px var(--panel-shadow);
+}
+
+#join h2 {
+  color: var(--accent);
+  text-transform: uppercase;
+  border-left: 6px solid var(--accent);
+  display: inline-block;
+  padding-left: 12px;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+}
+
+#join p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text);
+  margin-bottom: 30px;
+}
+
+.discord-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #5865f2;
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(88, 101, 242, 0.4);
+}
+
+.discord-btn i {
+  font-size: 1.4rem;
+}
+
+.discord-btn:hover {
+  background: #4752c4;
+  transform: scale(1.07);
+  box-shadow: 0 0 25px rgba(88, 101, 242, 0.8);
+}
+
